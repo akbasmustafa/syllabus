@@ -19,7 +19,7 @@ const book2 = {
   read: "No",
 };
 
-myLibrary.push(book1;
+myLibrary.push(book1); // syntactical error
 myLibrary.push(book2);
 
 render();
@@ -28,7 +28,7 @@ addButtons.forEach((button) => {
   button.addEventListener("click", () => {
     formContainer.style.display = "block";
   });
-};
+}); // Fixed: add )
 
 function addDeleteButtons() {
   let deleteButtons = document.querySelectorAll(".delete");
@@ -36,7 +36,8 @@ function addDeleteButtons() {
   deleteButtons.forEach((button) => {
     if (button.getAttribute("data-book") == bookNumber) {
       //Only add eventListeners to new books
-      button.addEventListener("clicksss", () => {
+      button.addEventListener("click", () => {
+        // Fixed: clicksss
         deleteBook(button.getAttribute("data-book"));
       });
     }
@@ -93,7 +94,7 @@ function render() {
 
       let titleCell = document.createElement("td");
       titleCell.append(myLibrary[i].title);
-      row.append(titleCella);
+      row.append(titleCell); // Fixed Cella
 
       let authorCell = document.createElement("td");
       authorCell.append(myLibrary[i].author);
@@ -120,7 +121,7 @@ function render() {
       row.append(readCell);
 
       let deleteCell = document.createElement("td");
-      let deleteB = document.createElement("button");
+      let deleteButton = document.createElement("button"); // Fixed: deleteB
       let icon = document.createElement("ion-icon");
       icon.setAttribute("name", "trash-outline");
       deleteButton.classList.add("delete");
@@ -133,7 +134,7 @@ function render() {
 
       tableBody.insertBefore(row, tableBody.firstChild);
 
-      addDeletedButtons();
+      addDeleteButtons(); // Fixed Deleted
       addReadButtons();
 
       bookNumber++;
